@@ -98,6 +98,7 @@ for column in sht2_dataset.columns:
     del sht2_dataset[column]
 
 # population dataset
+# SOURCE: https://data.worldbank.org/indicator/SP.POP.TOTL?name_desc=false
 
 population_dataset = pd.read_csv("country_population.csv", header=2, usecols=["Country Name", "2018", "2019", "2020"])
 population_dataset.rename(columns={population_dataset.columns[0]:'Country'}, inplace=True)
