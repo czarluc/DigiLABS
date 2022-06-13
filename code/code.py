@@ -107,9 +107,17 @@ population_dataset = population_dataset.set_index(population_dataset.iloc[:, 0].
 print("#### ANSWERS #####")
 
 # #1
+print("---- Answer #1 -----")
+print("Choose a Social Media Network. Input the number as the choice")
 # print(sht1_dataset.index.values.tolist())
+ans1_counter = 0
+for i in sht1_dataset.index.values.tolist():
+    print("[" + str(ans1_counter) + "] " + str(i))
+    ans1_counter += 1
+print("--------------------")
+ans1_input = int(input("Please input the desired Social Media Network: "))
 
-selected_col = sht1_dataset.index.values.tolist()[0]
+selected_col = sht1_dataset.index.values.tolist()[ans1_input]
 
 selected_index = sht1_dataset.index.get_loc(selected_col)
 selected_media = sht1_dataset.iloc[[selected_index]]
@@ -124,6 +132,8 @@ for column in selected_media.columns:
 print()
 
 # #2
+print("---- Answer #2 -----")
+print("Choose a Country. Input the number as the choice.")
 columns = sht2_dataset.columns.values.tolist()
 countries = []
 
@@ -132,7 +142,14 @@ for col in columns:
         country = (col.replace("dur", "")).strip()
         countries.append(country)
 
-selected_col = "United States"
+ans2_counter = 0
+for country in countries:
+    print("[" + str(ans2_counter) + "] " + str(country))
+    ans2_counter += 1
+print("--------------------")
+ans2_input = int(input("Please input the desired country: "))
+
+selected_col = countries[ans2_input]
 selected_media = sht2_dataset.loc[:, selected_col + " dur"]
 selected_media_sorted = selected_media.sort_values(ascending=False)
 
@@ -143,7 +160,24 @@ for i, number in selected_media_sorted.iteritems():
 print()
 
 # #3
-selected_col = "United States"
+print("---- Answer #3 -----")
+print("Choose a Country. Input the number as the choice.")
+columns = sht2_dataset.columns.values.tolist()
+countries = []
+
+for col in columns:
+    if "dur" in col:
+        country = (col.replace("dur", "")).strip()
+        countries.append(country)
+
+ans3_counter = 0
+for country in countries:
+    print("[" + str(ans3_counter) + "] " + str(country))
+    ans3_counter += 1
+print("--------------------")
+ans3_input = int(input("Please input the desired country: "))
+
+selected_col = countries[ans3_input]
 
 selected_country = sht1_dataset.loc[:, selected_col + " users"]
 # print(selected_country)
